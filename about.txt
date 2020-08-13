@@ -1,0 +1,9 @@
+Heres what the system looks like
+
+You have a party. A party is composed of a group of users.
+The party has ONE order.
+The order is composed of items.
+Each item has a price. and an id. and a list of people. which are in on the item.
+
+Calculate the total price of the order.
+Calculate the total price for a specific user given the order #.
