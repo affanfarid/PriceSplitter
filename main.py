@@ -1,5 +1,6 @@
 import test2
 
+biz1 = test2.Business(50001, 1000)
 
 pyra = test2.User(1,100)
 mythra = test2.User(2,100)
@@ -25,7 +26,7 @@ fries.addUser(mythra)
 # fries.printInfo()
 
 
-order1 = test2.Order(50,party)
+order1 = test2.Order(50,party,biz1)
 
 meal = [fries,burger,sandwich]
 for x in meal:
@@ -39,8 +40,29 @@ for x in meal:
 #   print("---------")
 
 #print(order1.calculateTotal())
-print(order1.calculateUserCost(pyra))
-print(order1.calculateUserCost(mythra))
+# print(order1.calculateUserCost(pyra))
+# print(order1.calculateUserCost(mythra))
+
+
+print("BEFORE: ")
+biz1.printInfo()
+print("=========")
+for x in party.users.values():
+  x.printInfo()
+  print("---------")
+
+order1.payOrder()
+
+print("AFTER: ")
+print("=========")
+biz1.printInfo()
+for x in party.users.values():
+  x.printInfo()
+  print("---------")
+
+
+
+
 
 
 

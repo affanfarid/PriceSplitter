@@ -9,6 +9,10 @@ class User:
   def deposit(self,amount):
     self.balance += amount
 
+  def printInfo(self):
+    print(f'UserID: {self.userID}')
+    print(f'Balance: {self.balance}')
+
 class Party:
   def __init__(self,partyID,users={},order=None):
     self.partyID = partyID
@@ -22,7 +26,7 @@ class Party:
   def addOrder(self,order):
     self.order = order
 
-  #sus
+
   def addUser(self,user):
     self.users.update({user.userID:user})
 
@@ -31,9 +35,10 @@ class Party:
 
 
 class Order:
-  def __init__(self,orderID, party=None):
+  def __init__(self,orderID, party, business):
     self.orderID = orderID
     self.party = party
+    self.business = business
     self.items = {}
 
   def addItem(self,item):
@@ -54,6 +59,14 @@ class Order:
       if user in x.users.values():
         total += x.price/len(x.users)
     return total
+
+  def payOrder(self):
+    for x in self.party.users.values():
+      cost = self.calculateUserCost(x)
+      x.withdraw(cost)
+      self.business.deposit(cost)
+
+
 
 
 class Item:
@@ -85,3 +98,17 @@ class Item:
 
   
 
+class Business:
+  def __init__(self,businessID,initAmount=0):
+    self.businessID = businessID
+    self.balance = initAmount
+
+  def withdraw(self,amount):
+    self.balance -= amount
+
+  def deposit(self,amount):
+    self.balance += amount
+
+  def printInfo(self):
+    print(f'BusinessID: {self.businessID}')
+    print(f'Balance: {self.balance}')
