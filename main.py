@@ -12,25 +12,35 @@ for x in goons:
   party.addUser(x)
 
 fries = test2.Item(21,5,pyra)
-#burger = test2.Item(22,10,mythra)
-#sandwich = test2.Item(23,9,pyra)
+burger = test2.Item(22,10,mythra)
+sandwich = test2.Item(23,9,pyra)
 
 #fries.removeUser(mythra)
-fries.printInfo()
+#fries.printInfo()
+#burger.printInfo()
 
-#fries.addUser(mythra)
+fries.addUser(mythra)
+
+# print("---------")
+# fries.printInfo()
 
 
 order1 = test2.Order(50,party)
 
-meal = [fries]#,burger,sandwich]
+meal = [fries,burger,sandwich]
 for x in meal:
   order1.addItem(x)
 
-# for y in order1.items:
+# print("BEGIN")
+# for y in order1.items.values():
+#   #print(order1.items.get(y))
+#   #order1.items.get(y).printInfo()
 #   y.printInfo()
+#   print("---------")
 
 #print(order1.calculateTotal())
+print(order1.calculateUserCost(pyra))
+print(order1.calculateUserCost(mythra))
 
 
 

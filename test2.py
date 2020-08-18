@@ -12,7 +12,11 @@ class User:
 class Party:
   def __init__(self,partyID,users={},order=None):
     self.partyID = partyID
-    self.users = users
+    self.users = {}
+
+    for x in users:
+      self.users[x] = users[x]
+
     self.order = order
 
   def addOrder(self,order):
@@ -40,14 +44,14 @@ class Order:
 
   def calculateTotal(self):
     total = 0
-    for x in self.items:
+    for x in self.items.values():
       total += x.price
     return total
 
   def calculateUserCost(self,user):
     total = 0
-    for x in self.items:
-      if user in x.users:
+    for x in self.items.values():
+      if user in x.users.values():
         total += x.price/len(x.users)
     return total
 
@@ -57,7 +61,10 @@ class Item:
     self.itemID = itemID
     self.price = price
     self.mainUser = mainUser
-    self.users = users
+    self.users = {} # users
+
+    for x in users:
+      self.users[x] = users[x]
 
     self.users[mainUser.userID] = mainUser
     #self.users.update({mainUser.userID:mainUser})
