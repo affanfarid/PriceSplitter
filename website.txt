@@ -1,0 +1,18 @@
+Website:
+
+Home Page:
+-logo with background
+-Create account button
+-login button
+-link to business page.
+
+Buisness Page:
+-logo with background
+-create account button.
+-login button
+
+Login Page
+Simple logo with boxes for username and password.
+Create account button. 
+
+User Page
