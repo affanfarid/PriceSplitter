@@ -1,0 +1,41 @@
+User:
+-userID
+-username
+-password
+
+-First Name
+-Last Name
+-balance
+
+
+Business:
+-businessID
+-Name
+-code (unique string)
+-balance
+
+
+PartyUsers:
+-partyID
+-userID (User.userID)
+-partyHead(True/False?)
+
+OrderItem:
+-orderItemID (the unique instance of the item)
+-item (what item is it)
+-userID
+-partyID
+
+
+Item:
+-itemID
+-businessID
+-Name
+-price
+-Category
+
+Transaction
+-transactionID
+-partyID
+-businessID
+
